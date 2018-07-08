@@ -63,7 +63,7 @@ public final class AesTest extends BaseTest
 	public void testDecryptTemp() {
 		try {
 			String str = FileUtil.getString(new File(ProjectUtil.getAbsolutePath("/doc/a.txt", true)));
-			byte[] target = Base64Util.decodeBase64(str).getBytes();
+			byte[] target = Base64Util.decodeFromString(str);
 			//byte[] result =  decrypt(target, "961ff7b4beeeed9e");
 			byte[] result = Decrypt(target, "961ff7b4beeeed9e");
 			FileUtil.writeByteArray(new File("D:/b.ts"), result);

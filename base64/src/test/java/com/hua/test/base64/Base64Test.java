@@ -1,61 +1,26 @@
 /**
- * UrlCoderTest.java
+ * Base64Test.java
  * @author qye.zheng
  * 
  * 	version 1.0
  */
 package com.hua.test.base64;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.apache.commons.codec.binary.Base64;
 import org.junit.Test;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
 
 import com.hua.constant.Constant;
 import com.hua.test.BaseTest;
 
 /**
- * UrlCoderTest
+ * Base64Test
  * 描述: 
  * @author qye.zheng
  * 
  */
 public final class Base64Test extends BaseTest
 {
-	
-	/**
-	 * 
-	 * 描述: 
-	 * @author qye.zheng
-	 * 
-	 */
-	@Test
-	public void testSunBase64Coder() {
-		try {
-			/**
-			 * BASE64Encoder 与 BASE64Decode
-			 * 没有提供设置 - 编码格式 的方法
-			 */
-			log.info("testSunBase64Coder =====> value = " + value);
-			// sun.misc.BASE64Encoder;
-			BASE64Encoder encoder = new BASE64Encoder();
-			encodeResult = encoder.encode(value.
-					getBytes(Constant.CHART_SET_UTF_8));
-			log.info("testSunBase64Coder =====> " + encodeResult);
-			// sun.misc.BASE64Decoder;
-			BASE64Decoder decoder = new BASE64Decoder();
-			data = decoder.decodeBuffer(encodeResult);
-			decodeResult = new String(data, Constant.CHART_SET_UTF_8);
-			log.info("testSunBase64Coder =====> decodeResult = " + decodeResult);
-			
-		} catch (Exception e) {
-			log.error("testSunBase64Coder=====> ", e);
-		}
-	}
 	
 	/**
 	 * 
@@ -173,7 +138,6 @@ public final class Base64Test extends BaseTest
 	@Test
 	public void testTemp() {
 		try {
-			BASE64Encoder encoder = new BASE64Encoder();
 			
 		} catch (Exception e) {
 			log.error("testTemp=====> ", e);
