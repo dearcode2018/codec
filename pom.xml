@@ -11,11 +11,13 @@
 	<modules>
 		<!-- 模板 -->
 		<module>codec-template</module>		
-		<module>aes</module>		
-		<module>base64</module>
-		<module>des</module>		
-		<module>md5</module>		
 		<module>codec-core</module>		
+		<module>base64</module>
+		<module>codec-rsa</module>		
+		<module>codec-aes</module>		
+		<module>codec-des</module>
+		<module>codec-sign</module>
+		<module>md5</module>		
 		<module>byte-encrypt</module>		
 		<module>random-code</module>			
 		<!--

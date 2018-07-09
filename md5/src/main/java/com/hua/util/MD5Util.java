@@ -60,6 +60,7 @@ public final class MD5Util {
 		if (n < 0) {
 			n = 256 + n;
 		}
+		/* 范围: [0, 255] */
 		// 高位
 		final int d1 = n / 16;
 		// 低位
@@ -70,7 +71,7 @@ public final class MD5Util {
 	
 	/**
 	 * 
-	 * @description 16进制字符串转成字节数组形式
+	 * @description 16进制字符串转成字节数组
 	 * @param b
 	 * @return
 	 * @author qye.zheng
@@ -102,6 +103,7 @@ public final class MD5Util {
 	    b0 = (byte) (b0 << 4);  
 	    byte b1 = Byte.decode("0x" + src1).byteValue();  
 	    byte ret = (byte) (b0 | b1);  
+	    
 	    return ret;  
 	}  
 
@@ -112,15 +114,30 @@ public final class MD5Util {
 	 * @return
 	 * @author qye.zheng
 	 */
-	public static final String md5Encode(final String origin) {
+	public static final String encodeToString(final String origin) {
 		String result = null;
 		try {
-			result = new String(origin);
+			result = byteArrayToHexString(encode(origin.getBytes(Constant.CHART_SET_UTF_8)));
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
 
-			final MessageDigest md = MessageDigest
-					.getInstance(Constant.EN_DECRY_MD5);
-			// md.update(result.getBytes());
-			result = byteArrayToHexString(md.digest(result.getBytes()));
+		return result;
+	}
+	
+	/**
+	 * 
+	 * @description 
+	 * @param binaryData
+	 * @return
+	 * @author qianye.zheng
+	 */
+	public static final byte[] encode(final byte[] binaryData) {
+		byte[] result = null;
+		try {
+			// 32位
+			final MessageDigest md = MessageDigest.getInstance(Constant.EN_DECRY_MD5);
+			result = md.digest(binaryData);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

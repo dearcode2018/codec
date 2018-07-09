@@ -1,11 +1,11 @@
 /**
  * 描述: 
- * MD5UtilTest.java
+ * RSATest.java
  * 
  * @author qye.zheng
  *  version 1.0
  */
-package com.hua.test.md5;
+package com.hua.test.rsa;
 
 // 静态导入
 import static org.junit.Assert.assertArrayEquals;
@@ -24,16 +24,16 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import com.hua.test.BaseTest;
-import com.hua.util.MD5Util;
+import com.hua.util.RSAUtil;
 
 
 /**
  * 描述: 
  * 
  * @author qye.zheng
- * MD5UtilTest
+ * RSATest
  */
-public final class MD5UtilTest extends BaseTest {
+public final class RSATest extends BaseTest {
 
 	/**
 	 * 
@@ -42,17 +42,39 @@ public final class MD5UtilTest extends BaseTest {
 	 * 
 	 */
 	@Test
-	public void testMD5Util() {
+	public void testRSA() {
 		try {
-			String result = MD5Util.encodeToString("中hha");
+			/*
+			 * 公钥、私钥都是VM自动生成的，每次值都不同.
+			 */
+			/**
+				公钥: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIUSk1BNBMXwgQM6vxki4jtQe9ii6scIYCg4UocwTnSYczdzFg1CLGxtppwIX2pQM50CvfASD11HNsD/vJYvaM8CAwEAAQ==
+				私钥: MIIBUwIBADANBgkqhkiG9w0BAQEFAASCAT0wggE5AgEAAkEAhRKTUE0ExfCBAzq/GSLiO1B72KLqxwhgKDhShzBOdJhzN3MWDUIsbG2mnAhfalAznQK98BIPXUc2wP+8li9ozwIDAQABAkB6uq4I4m+jivPBob27lhOmds0x+NelZxEgJwneSuwg1VqS70Z8vh7rg0hqrd4b1/tvyntr5MS42QFdnGFhKpM5AiEA4BohvJmobAh0Qhv7yFgSSRp2TdGHffKTT8hBPEyioHMCIQCYA37Fsgtwft47NaC6a8yFR94WRskDGLCQV659ylPLNQIgRxnjZEw4NHaGNEdenhTbUFhV+qCk5V/mPyThFbmWy2MCIAYNzZSt/IqkYtFU12vVMzXzoMKeWw8GgrGc7FQSJLgpAiBJ2JRMnB/TR3PL1xPz+MBqnAIUp/W2WjHMhCO6Qun/CA==
+				解密后: 哈哈哈， hello
+				解密后: 哈哈哈， hello
+			 */
+			byte[] publicKey = RSAUtil.getPublicKey();
+			byte[] privateKey = RSAUtil.getPrivateKey();
 			
-			log.info("testMD5Util =====> result = " + result);
-			log.info("testMD5Util =====> result = " + result.length());
+			System.out.println("公钥: " + RSAUtil.getPublicKeyBase64String());
+			System.out.println("私钥: " + RSAUtil.getPrivateKeyBase64String());
+			
+			final String orginal = "哈哈哈， hello RSA";
+			/* 公钥加密，私钥解密 */
+			byte[] encryptPublic = RSAUtil.encryptPublicKey(orginal.getBytes(), publicKey);
+			byte[] decryptPrivate = RSAUtil.decryptPrivateKey(encryptPublic, privateKey);
+			System.out.println("[公钥加密，私钥解密] 解密后: " + new String(decryptPrivate));
+			
+			/* 私钥加密，公钥解密 */
+			byte[] encryptPrivate = RSAUtil.encryptPrivateKey(orginal.getBytes(), privateKey);
+			byte[] decryptPublic = RSAUtil.decryptPublicKey(encryptPrivate, publicKey);
+			System.out.println("[私钥加密，公钥解密] 解密后: " + new String(decryptPublic));
+			
 		} catch (Exception e) {
-			log.error("testMD5Util =====> ", e);
+			log.error("testRSA =====> ", e);
 		}
 	}
-
+	
 	/**
 	 * 
 	 * 描述: 

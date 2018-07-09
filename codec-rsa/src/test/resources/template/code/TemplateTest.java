@@ -1,11 +1,11 @@
 /**
  * 描述: 
- * MD5UtilTest.java
+ * TemplateTest.java
  * 
  * @author qye.zheng
  *  version 1.0
  */
-package com.hua.test.md5;
+package template.code;
 
 // 静态导入
 import static org.junit.Assert.assertArrayEquals;
@@ -24,34 +24,15 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import com.hua.test.BaseTest;
-import com.hua.util.MD5Util;
 
 
 /**
  * 描述: 
  * 
  * @author qye.zheng
- * MD5UtilTest
+ * TemplateTest
  */
-public final class MD5UtilTest extends BaseTest {
-
-	/**
-	 * 
-	 * 描述: 
-	 * @author qye.zheng
-	 * 
-	 */
-	@Test
-	public void testMD5Util() {
-		try {
-			String result = MD5Util.encodeToString("中hha");
-			
-			log.info("testMD5Util =====> result = " + result);
-			log.info("testMD5Util =====> result = " + result.length());
-		} catch (Exception e) {
-			log.error("testMD5Util =====> ", e);
-		}
-	}
+public final class TemplateTest extends BaseTest {
 
 	/**
 	 * 

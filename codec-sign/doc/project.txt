@@ -1,0 +1,47 @@
+【项目信息】
+项目名称 : codec
+中文名称 : 编码解码
+项目版本 : version 1.0
+主要技术 : 
+项目描述 : 字符码转换，编码 解码
+项目备注 : 编码 解码，加密 和 解密
+加密和解密 就是一种编码和解码，因此，该项目所探讨的就是字符的编码和解码问题.
+
+加密技术、解密技术、密钥、、
+
+【项目规划】
+
+1) 简单加密/编码算法
+base64: 严格来说属于编码格式, 而不是加密算法
+md5(Message Digest algorithm): 信息摘要算法 
+sha(Secure Hash Algorithm): 安全散列算法
+hmac(Hash Message Authentication Code): 散列消息鉴别码
+2) 复杂对称(DES/PBE)/非对称加密算法
+DES(Data Encryption Standard): 数据加密标准
+PBE(Password-based Encryption): 基于密码验证
+RSA(以发明者名字命名): 非对称加密算法
+DSA(Digital Signature Algorithm): 数字签名
+ECC(Elliptic Curves Cryptography): 椭圆曲线密码编码学 
+
+3) 非可逆加密
+MD5/SHA/HMAC 是非可逆加密算法, 就是不可解密的加密算法.
+
+4) 参考
+java - 加密技术 系列
+http://snowolf.iteye.com/blog/379860
+
+
+
+5) DH
+Diffie-Hellman算法, 密钥一致算法, 简单而言就是说允许2名用户在公开媒体上交换信息以生成一致的/可共享的密钥.
+甲方产生出一对密钥(公钥/私钥), 乙方依照甲方公钥产生乙方密钥(公钥/私钥). 以此为基线, 作为数据传输保密基础, 同时
+双方使用一种对称加密算法构建本地密钥对数据加密, 同时可以使用对方的公钥加密和自己的私钥解密.
+
+
+
+
+
+
+
+
+
