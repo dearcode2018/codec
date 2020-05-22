@@ -66,7 +66,7 @@ public final class FileDecryptTest extends BaseTest {
 			}
 			System.out.println(Arrays.toString(temp));
 			
-			FileUtil.writeByteArray(file, temp);
+			FileUtil.writeByteArray(file, temp, false);
 			
 			// 数组拷贝，将data中的数据拷贝到 temp
 			

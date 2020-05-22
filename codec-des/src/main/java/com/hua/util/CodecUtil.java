@@ -13,8 +13,8 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.hua.constant.Constant;
 
@@ -26,7 +26,7 @@ import com.hua.constant.Constant;
 public final class CodecUtil
 {
 	/* apache commons log */
-	protected static final Log log = LogFactory.getLog(CodecUtil.class.getName());
+	protected final Logger log = LogManager.getLogger(this.getClass().getName());
 
 	/* [0, 15] */
 	private static final String[] hexDigits = { "0", "1", "2", "3", "4", "5",

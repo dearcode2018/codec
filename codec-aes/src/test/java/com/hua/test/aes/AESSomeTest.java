@@ -54,7 +54,7 @@ public final class AESSomeTest extends BaseTest {
 			byte[] result = AESUtil.decrypt(data, password);
 			path = ProjectUtil.getAbsolutePath("/doc", true) + "/result.ts";
 			
-			FileUtil.writeByteArray(path, result);
+			FileUtil.writeByteArray(path, result, false);
 			
 			
 		} catch (Exception e) {

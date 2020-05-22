@@ -5,10 +5,9 @@
  */
 package com.hua.util;
 
-import java.security.SecureRandom;
+import java.nio.charset.StandardCharsets;
 
 import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -43,22 +42,12 @@ public final class AESUtil
 	{
 		byte[] result = null;
 		try {
-			final KeyGenerator keyGenerator = KeyGenerator.getInstance(Constant.EN_AES);
-			final SecureRandom secureRandom = SecureRandom.getInstance(Constant.EN_SHA1PRNG);
-			// 设置密码种子
-			secureRandom.setSeed(password.getBytes());
-			// 初始化
-			keyGenerator.init(128, secureRandom);
-			
-			final SecretKey secretKey = keyGenerator.generateKey();
-			final byte[] encodeBinary = secretKey.getEncoded();
-			final SecretKeySpec keySpec = new SecretKeySpec(encodeBinary, Constant.EN_AES);
+			final SecretKey key = new SecretKeySpec(password.getBytes(StandardCharsets.UTF_8), Constant.EN_AES);
 			
 			// 密码器
 			final Cipher cipher = Cipher.getInstance(Constant.EN_AES);
 			//初始化为加密模式
-			cipher.init(Cipher.ENCRYPT_MODE, keySpec);
-			
+			cipher.init(Cipher.ENCRYPT_MODE, key);
 			// 加密
 			result = cipher.doFinal(binaryData);
 		} catch (Exception e) {
@@ -81,16 +70,7 @@ public final class AESUtil
 
 		byte[] result = null;
 		try {
-			final KeyGenerator keyGenerator = KeyGenerator.getInstance(Constant.EN_AES);
-/*			final SecureRandom secureRandom = SecureRandom.getInstance(Constant.EN_SHA1PRNG);
-			// 设置密码种子
-			secureRandom.setSeed(password.getBytes());
-			// 初始化
-			keyGenerator.init(128, secureRandom);*/
-			
-			final SecretKey secretKey = keyGenerator.generateKey();
-			final byte[] encodeBinary = secretKey.getEncoded();
-			final SecretKeySpec keySpec = new SecretKeySpec(password.getBytes(), Constant.EN_AES);
+			final SecretKey keySpec = new SecretKeySpec(password.getBytes(StandardCharsets.UTF_8), Constant.EN_AES);
 			
 			/*
 			 * NoPadding/PKCS5Padding/ISO10126Padding
@@ -100,7 +80,7 @@ public final class AESUtil
 			 * 
 			 */
 			// 密码器 参数顺序: 算法/模式/填充
-			final Cipher cipher = Cipher.getInstance("AES/ECB/NoPadding");
+			final Cipher cipher = Cipher.getInstance(Constant.EN_AES);
 			//初始化为解密模式
 			cipher.init(Cipher.DECRYPT_MODE, keySpec);
 			

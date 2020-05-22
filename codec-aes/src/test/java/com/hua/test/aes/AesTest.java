@@ -66,7 +66,7 @@ public final class AesTest extends BaseTest
 			byte[] target = Base64Util.decodeFromString(str);
 			//byte[] result =  decrypt(target, "961ff7b4beeeed9e");
 			byte[] result = Decrypt(target, "961ff7b4beeeed9e");
-			FileUtil.writeByteArray(new File("D:/b.ts"), result);
+			FileUtil.writeByteArray(new File("D:/b.ts"), result, false);
 			
 		} catch (Exception e) {
 			log.error("testDecryptTemp =====> ", e);

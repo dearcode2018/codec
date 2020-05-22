@@ -46,7 +46,7 @@ public final class Base64DecodeStarter
 		filename = "test.txt";
 		
 		String targetPath = ProjectUtil.getAbsolutePath("/doc", true) + "/" + filename;
-		FileUtil.writeByteArray(targetPath, Base64Util.decodeFromString(base64String));
+		FileUtil.writeByteArray(targetPath, Base64Util.decodeFromString(base64String), false);
 		
 		/** ===== end of 驱动参数设置 ===== */
 

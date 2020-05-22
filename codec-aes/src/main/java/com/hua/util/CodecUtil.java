@@ -5,6 +5,7 @@
  */
 package com.hua.util;
 
+import java.nio.charset.StandardCharsets;
 import java.security.SecureRandom;
 import java.util.Random;
 
@@ -13,8 +14,8 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.hua.constant.Constant;
 
@@ -26,7 +27,7 @@ import com.hua.constant.Constant;
 public final class CodecUtil
 {
 	/* apache commons log */
-	protected static final Log log = LogFactory.getLog(CodecUtil.class.getName());
+	protected static final Logger log = LogManager.getLogger(CodecUtil.class.getName());
 
 	/* [0, 15] */
 	private static final String[] hexDigits = { "0", "1", "2", "3", "4", "5",
@@ -58,7 +59,7 @@ public final class CodecUtil
 		{
 			KeyGenerator keyGenerator = KeyGenerator.getInstance(Constant.EN_AES);
 			// 安全随机器
-			final SecureRandom random = new SecureRandom(secret.getBytes(Constant.CHART_SET_UTF_8));
+			final SecureRandom random = new SecureRandom(secret.getBytes(StandardCharsets.UTF_8));
 			keyGenerator.init(128, random);
 			SecretKey secretKey = keyGenerator.generateKey();
 			byte[] enCodeFormat = secretKey.getEncoded();

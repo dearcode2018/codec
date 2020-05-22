@@ -6,7 +6,6 @@
 package com.hua.util;
 
 import com.hua.constant.Constant;
-import com.hua.util.FormatUtil;
 
 /**
  * ByteUtil
@@ -46,7 +45,7 @@ public final class ByteUtil
 			// 正数(包括0)
 			result = Integer.toBinaryString(value);
 			// 补0
-			result = FormatUtil.addZero(result, Byte.SIZE);
+			result = StringUtil.addZero(result, Byte.SIZE);
 		} else 
 		{
 			// 负数 截取24 - 31 位 substring(24)
