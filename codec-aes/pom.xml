@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.hua</groupId>
 		<artifactId>codec-entire</artifactId>
-		<version>0.0.1</version>
+		<version>1.0.0</version>
 	</parent>	
 
 	<artifactId>codec-aes</artifactId>
@@ -13,7 +13,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		
-		<codec-core.version>0.0.1</codec-core.version>
+		<codec-core.version>1.0.0</codec-core.version>
 	</properties>
 
 	<dependencies>
