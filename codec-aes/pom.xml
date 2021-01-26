@@ -11,16 +11,13 @@
 	<packaging>jar</packaging>
 	<name>codec-aes</name>
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		
-		<codec-core.version>1.0.0</codec-core.version>
+
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.hua</groupId>
 			<artifactId>codec-core</artifactId>
-			<version>${codec-core.version}</version>
 		</dependency>
 		
 	</dependencies>

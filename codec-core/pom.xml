@@ -11,23 +11,18 @@
 	<packaging>jar</packaging>
 	<name>codec-core</name>
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		
-		<common.version>1.0.0</common.version>
-		<commons-codec.version>1.11</commons-codec.version>
+
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.hua</groupId>
 			<artifactId>common</artifactId>
-			<version>${common.version}</version>
 		</dependency>
 		
 	<dependency>
 	    <groupId>commons-codec</groupId>
 	    <artifactId>commons-codec</artifactId>
-	    <version>${commons-codec.version}</version>
 	</dependency>		
 		
 	</dependencies>
